@@ -1,0 +1,177 @@
+/* Hero Block Styles */
+
+.hero-block {
+
+    padding: 60px 20px;
+  
+    background-color: #f8f8f8;
+  
+    margin-bottom: 40px;
+  
+  }
+  
+  
+  
+  .hero-block .hero-row {
+  
+    margin-bottom: 20px; 
+  
+  }
+  
+  
+  
+  /* Heading Section */
+  
+  .hero-block .hero-heading {
+  
+    margin-bottom: 20px;
+  
+  }
+  
+  
+  
+  .hero-heading-text {
+  
+    font-size: 48px;
+  
+    font-weight: 700;
+  
+    line-height: 1.2;
+  
+    color: #1a1a1a;
+  
+    margin: 0 0 20px;
+  
+  }
+  
+  
+  
+  /* Description Section */
+  
+  .hero-block .hero-description {
+  
+    margin-bottom: 30px;
+  
+  }
+  
+  
+  
+  .hero-description-text {
+  
+    font-size: 20px;
+  
+    line-height: 1.6;
+  
+    color: #4a4a4a;
+  
+    margin: 0 0 20px;
+  
+  }
+  
+  
+  
+  /* Image Section */
+  
+  .hero-block .hero-image {
+  
+    margin-top: 30px;
+  
+  }
+  
+  
+  
+  .hero-image-element {
+  
+    max-width: 100%;
+  
+    height: auto;
+  
+    display: block;
+  
+    border-radius: 8px;
+  
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  
+  }
+  
+  
+  
+  /* Responsive Design - Tablet */
+  
+  @media (width <= 768px) {
+  
+    .hero-block {
+  
+      padding: 40px 16px;
+  
+      margin-bottom: 30px;
+  
+    }
+  
+  
+  
+    .hero-heading-text {
+  
+      font-size: 32px;
+  
+      margin-bottom: 15px;
+  
+    }
+  
+  
+  
+    .hero-description-text {
+  
+      font-size: 18px;
+  
+      margin-bottom: 15px;
+  
+    }
+  
+  }
+  
+  
+  
+  /* Responsive Design - Mobile */
+  
+  @media (width <= 480px) {
+  
+    .hero-block {
+  
+      padding: 30px 12px;
+  
+      margin-bottom: 20px;
+  
+    }
+  
+  
+  
+    .hero-heading-text {
+  
+      font-size: 24px;
+  
+      margin-bottom: 12px;
+  
+    }
+  
+  
+  
+    .hero-description-text {
+  
+      font-size: 16px;
+  
+      margin-bottom: 12px;
+  
+    }
+  
+  
+  
+    .hero-image-element {
+  
+      border-radius: 4px;
+  
+    }
+  
+  } 
+  
+  
