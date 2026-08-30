@@ -1,57 +1,47 @@
 export default function decorate(block) {
+  const rows = [...block.children];
 
-    const rows = [...block.children]; 
-  
-  
-  
-    rows.forEach((row, index) => {
-  
-      const cols = [...row.children];
-  
-  
-  
-      // Skip row 0 (it's just "heroV2" block identifier)
-  
-      if (index === 1 && cols[0]) {
-  
-        // Row 1: Heading
-  
-        cols[0].classList.add('hero-heading');
-  
-      } else if (index === 2 && cols[0]) {
-  
-        // Row 2: Description
-  
-        cols[0].classList.add('hero-description');
-  
-      } else if (index === 3 && cols[0]) {
-  
-        // Row 3: Image
-  
-        cols[0].classList.add('hero-image');
-  
-        const img = cols[0].querySelector('img');
-  
-        if (img) {
-  
-          img.loading = 'lazy';
-  
-          img.classList.add('hero-image-element');
-  
-        }
-  
+  rows.forEach((row, index) => {
+    row.classList.add('hero-row');
+
+    const col = row.children[0];
+    if (!col) return;
+
+    if (index === 0) {
+      // Row 0: Heading
+      col.classList.add('hero-heading');
+      const heading = col.querySelector('h1, h2, h3, h4, h5, h6, p');
+      if (heading) heading.classList.add('hero-heading-text');
+
+    } else if (index === 1) {
+      // Row 1: Description
+      col.classList.add('hero-description');
+      const paragraph = col.querySelector('p');
+      if (paragraph) paragraph.classList.add('hero-description-text');
+
+    } else if (index === 2) {
+      // Row 2: Image
+      col.classList.add('hero-image');
+
+      let img = col.querySelector('img');
+      const link = col.querySelector('a');
+
+      // Convert Universal Editor reference link to an <img> element
+      if (!img && link) {
+        img = document.createElement('img');
+        img.src = link.href;
+        img.alt = link.textContent.trim() || 'Hero Image';
+        
+        // If wrapped in a <p>, replace the link inside
+        link.replaceWith(img);
       }
-  
-  
-  
-      row.classList.add('hero-row');
-  
-    });
-  
-  
-  
-    block.classList.add('hero-block');
-  
-  } 
-  
-  
+
+      if (img) {
+        img.loading = 'eager';
+        img.classList.add('hero-image-element');
+      }
+    }
+  });
+
+  block.classList.add('hero-block');
+}
